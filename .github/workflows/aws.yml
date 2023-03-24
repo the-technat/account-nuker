@@ -20,4 +20,4 @@ jobs:
       - uses: coinmama/actions-awsnuke@v1
         with:
           aws_nuke_version: "2.21.2"
-          aws_nuke_config: ${{ github.workspace }}/aws-nuke-config.yml
+          aws_nuke_config: aws-nuke-config.yml
