@@ -32,3 +32,6 @@ accounts:
       IAMLoginProfile:
       - type: "glob"
         value: "*banana*"
+      - type: "glob"
+        value: "*codespace*"
+
