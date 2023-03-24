@@ -1,7 +1,7 @@
 regions:
 - sa-east-1 # Sao Paulo
 - us-east-1 # North Virginia
-- eu-central-2 # Zürich
+- eu-central-2 # Z├╝rich
 - eu-central-1 # Frankfurt
 - global
 
@@ -16,19 +16,19 @@ accounts:
       - "tfc"
       - "nuker"
       IAMUserPolicyAttachment:
-			- "banana -> AdministratorAccess"
-			- "tfc -> AdministratorAccess"
-			- "nuker -> AdministratorAccess"
-		  IAMUserAccessKey:
-		  - type: "glob"
-		   	value: "banana -> *"
-		  - type: "glob"
-		   	value: "tfc -> *"
-		  - type: "glob"
-			  value: "nuker -> *"
-		  IAMVirtualMFADevice:
-		  - type: "glob"
-			  value: "arn:aws:iam::298410952490:mfa/*"
-		  IAMLoginProfile:
-		  - type: "glob"
-			  value: "*banana*"
+      - "banana -> AdministratorAccess"
+      - "tfc -> AdministratorAccess"
+      - "nuker -> AdministratorAccess"
+      IAMUserAccessKey:
+      - type: "glob"
+        value: "banana -> *"
+      - type: "glob"
+        value: "tfc -> *"
+      - type: "glob"
+        value: "nuker -> *"
+      IAMVirtualMFADevice:
+      - type: "glob"
+        value: "arn:aws:iam::298410952490:mfa/*"
+      IAMLoginProfile:
+      - type: "glob"
+        value: "*banana*"
