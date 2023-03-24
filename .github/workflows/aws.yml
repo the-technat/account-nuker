@@ -1,0 +1,21 @@
+name: aws-nuke
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 23 * * *"
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-central-2
+      - uses: coinmama/actions-awsnuke@v1
+        with:
+          aws_nuke_version: "2.21.2"
+          aws_nuke_config: ../../aws-nuke-config.yml
