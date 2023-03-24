@@ -8,6 +8,8 @@ on:
 jobs:
   destroy:
     runs-on: ubuntu-latest
+    env:
+      aws_nuke_version: "v2.22.0"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,7 +19,11 @@ jobs:
           aws-region: eu-central-2
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - uses: coinmama/actions-awsnuke@v1
-        with:
-          aws_nuke_version: "2.21.2"
-          aws_nuke_config: aws-nuke-config.yml
+      - name: Install aws-nuke
+        run: |
+          curl -Lo aws-nuke.tar.gz https://github.com/rebuy-de/aws-nuke/releases/download/${{ env.aws_nuke_version }}/aws-nuke-${{ env.aws_nuke_version }}-linux-amd64.tar.gz
+          tar -zxvf aws-nuke.tar.gz
+          sudo mv aws-nuke-${{ env.aws_nuke_version }}-linux-amd64 /usr/local/bin/aws-nuke
+          rm aws-nuke.tar.gz
+      - name: Run aws-nuke
+        run: aws-nuke --no-dry-run --force -c aws-nuke-config.yml
