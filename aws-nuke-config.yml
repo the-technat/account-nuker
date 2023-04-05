@@ -8,6 +8,10 @@ regions:
 account-blocklist:
 - "999999999999" # production
 
+resource-types:
+  excludes:
+  - Route53HostedZone
+
 accounts:
   "298410952490":
     filters:
@@ -34,4 +38,3 @@ accounts:
         value: "*banana*"
       - type: "glob"
         value: "*codespace*"
-
