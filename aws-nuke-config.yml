@@ -17,8 +17,9 @@ accounts:
     filters:
       IAMUser:
       - "banana"
-      - "tfc"
       - "nuker"
+      - type: "glob"
+        value: "*tfc*"
       IAMUserPolicyAttachment:
       - "banana -> AdministratorAccess"
       - "tfc -> AdministratorAccess"
