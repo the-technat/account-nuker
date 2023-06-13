@@ -28,7 +28,7 @@ accounts:
       - type: "glob"
         value: "banana -> *"
       - type: "glob"
-        value: "tfc -> *"
+        value: "*tfc* -> *"
       - type: "glob"
         value: "nuker -> *"
       IAMVirtualMFADevice:
