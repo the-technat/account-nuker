@@ -22,7 +22,8 @@ accounts:
         value: "*tfc*"
       IAMUserPolicyAttachment:
       - "banana -> AdministratorAccess"
-      - "tfc -> AdministratorAccess"
+      - type: "glob"
+        value: "*tfc* -> AdministratorAccess"
       - "nuker -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
