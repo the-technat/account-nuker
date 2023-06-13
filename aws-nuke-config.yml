@@ -3,6 +3,8 @@ regions:
 - us-east-1 # North Virginia
 - eu-central-2 # Zürich
 - eu-central-1 # Frankfurt
+- eu-north-1 # Stockholm
+- eu-west-1 # Ireland
 - global
 
 account-blocklist:
@@ -16,27 +18,11 @@ accounts:
   "298410952490":
     filters:
       IAMUser:
-      - "banana"
-      - "nuker"
       - type: "glob"
         value: "*tfc*"
       IAMUserPolicyAttachment:
-      - "banana -> AdministratorAccess"
+      - "*tfc* -> AdministratorAccess"
       - type: "glob"
-        value: "*tfc* -> AdministratorAccess"
-      - "nuker -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
-        value: "banana -> *"
-      - type: "glob"
         value: "*tfc* -> *"
-      - type: "glob"
-        value: "nuker -> *"
-      IAMVirtualMFADevice:
-      - type: "glob"
-        value: "arn:aws:iam::298410952490:mfa/*"
-      IAMLoginProfile:
-      - type: "glob"
-        value: "*banana*"
-      - type: "glob"
-        value: "*codespace*"
