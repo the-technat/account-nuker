@@ -21,8 +21,8 @@ accounts:
       - type: "glob"
         value: "*tfc*"
       IAMUserPolicyAttachment:
-      - "*tfc* -> AdministratorAccess"
-      - type: "glob"
+      - type: "glob
+        value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
         value: "*tfc* -> *"
