@@ -18,11 +18,15 @@ accounts:
   "298410952490":
     filters:
       IAMUser:
+      - "cucumber"
       - type: "glob"
         value: "*tfc*"
       IAMUserPolicyAttachment:
+      - "cucumber -> AdministratorAccess"
       - type: "glob
         value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
+      - type: "glob"
+        value: "cucumber -> *"
       - type: "glob"
         value: "*tfc* -> *"
