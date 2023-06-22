@@ -3,7 +3,7 @@ name: aws-nuke
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 23 * * sun'
+    - cron: '0 23 * * sun,wed'
 
 jobs:
   destroy:
