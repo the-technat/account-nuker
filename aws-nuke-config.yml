@@ -23,7 +23,7 @@ accounts:
         value: "*tfc*"
       IAMUserPolicyAttachment:
       - "cucumber -> AdministratorAccess"
-      - type: "glob
+      - type: "glob"
         value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
