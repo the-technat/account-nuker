@@ -19,15 +19,15 @@ accounts:
   "298410952490":
     filters:
       IAMUser:
-      - "cucumber"
+      - "axiom"
       - type: "glob"
         value: "*tfc*"
       IAMUserPolicyAttachment:
-      - "cucumber -> AdministratorAccess"
+      - "axiom -> AdministratorAccess"
       - type: "glob"
         value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
-        value: "cucumber -> *"
+        value: "axiom -> *"
       - type: "glob"
         value: "*tfc* -> *"
