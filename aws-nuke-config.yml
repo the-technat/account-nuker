@@ -20,14 +20,18 @@ accounts:
     filters:
       IAMUser:
       - "axiom"
+      - "nuker"
       - type: "glob"
         value: "*tfc*"
       IAMUserPolicyAttachment:
       - "axiom -> AdministratorAccess"
+      - "nuker -> AdministratorAccess"
       - type: "glob"
         value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
         value: "axiom -> *"
+      - type: "glob"
+        value: "nuker -> *"
       - type: "glob"
         value: "*tfc* -> *"
