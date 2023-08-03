@@ -22,6 +22,9 @@ accounts:
       - "nuker"
       - type: "glob"
         value: "*tfc*"
+      IAMVirtualMFADevice:
+      - type: "glob"
+        value: "*"
       IAMUserPolicyAttachment:
       - "axiom -> AdministratorAccess"
       - "nuker -> AdministratorAccess"
