@@ -13,6 +13,7 @@ account-blocklist:
 resource-types:
   excludes:
   - Budget
+  - IAMVirtualMFADevice
 
 accounts:
   "296119450228":
