@@ -11,12 +11,4 @@ To setup nuking all we did was to create a new user named `nuker` which has the 
 
 Based on [azure-nuke](https://github.com/ekristen/azure-nuke). Nukes the lab account every sunday & wednesday at 23:00 PM.
 
-To setup nuking, all we did was pasting the following output into a github actions secret: ` az ad sp create-for-rbac --name "nuker" --role Contributor --scopes /subscriptions/559e87b7-6bd2-4c2a-a6f4-2c0e8b5b0edb --json-auth`
-
-## To Do
-
-I can imagine some improvements:
-- [ ] Skip nuke if a message on slack/telegram or co has been received
-- [ ] Push message if nuke failed
-- [ ] Add Hetzner Cloud
-- [ ] Add DigitalOcean Cloud
+Add `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID` and `AZURE_SUBSCRIPTION_ID` from this as secrets : ` az ad sp create-for-rbac --name "nuker" --role Contributor --scopes /subscriptions/559e87b7-6bd2-4c2a-a6f4-2c0e8b5b0edb`
