@@ -1,0 +1,35 @@
+name: azure-nuke
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 23 * * sun,wed'
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    env:
+      azure_nuke_version: "v0.15.0"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3     
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az account show
+            az storage -h
+      - name: Install azure-nuke
+        run: |
+          curl -Lo azure-nuke.tar.gz https://github.com/ekristen/azure-nuke/releases/download/${{ env.azure_nuke_version }}/azure-nuke-${{ env.azure_nuke_version }}-linux-amd64.tar.gz
+          tar -zxvf azure-nuke.tar.gz
+          sudo mv azure-nuke /usr/local/bin/azure-nuke
+          rm README.md
+          rm LICENSE
+          rm azure-nuke.tar.gz
+      - name: Run azure-nuke
+        run: azure-nuke --no-dry-run --config=azure-nuke-config.yml 
