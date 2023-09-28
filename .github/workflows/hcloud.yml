@@ -1,0 +1,26 @@
+name: hetzner-nuke
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 23 * * sun,wed'
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Go 
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+          cache-dependency-path: hetzner-nuker/go.sum
+      - name: Display Go version
+        run: go version
+      - name: Install dependencies
+        run: cd hcloud-nuker && go get .
+      - name: Run Hetzner hetzner-nuker
+        env:
+          CAPH_HCLOUD_TOKEN: ${{ secrets.CAPH_HCLOUD_TOKEN }}
+        run: go run main.go
