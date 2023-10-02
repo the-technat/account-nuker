@@ -23,4 +23,5 @@ jobs:
       - name: Run Hetzner hetzner-nuker
         env:
           CAPH_HCLOUD_TOKEN: ${{ secrets.CAPH_HCLOUD_TOKEN }}
-        run: go run main.go
+          TEVBOX_HCLOUD_TOKEN: ${{ secrets.TEVBOX_HCLOUD_TOKEN }}
+        run: cd hcloud-nuker && go run main.go

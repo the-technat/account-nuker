@@ -1,1 +1,2 @@
-.env
+**.env*
+hcloud-nuker/hcloud-nuke-config.yaml
