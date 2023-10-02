@@ -15,4 +15,4 @@ Add `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID` and `AZURE_SUBSC
 
 ## Hetzner Nuking
 
-Since I couldn' find a nuker for Hetzner Cloud, the [hcloud-nuker](./hcloud-nuker/) folder contains my own implementation using [hcloud-go](https://github.com/hetznercloud/hcloud-go). If you look at the configuration file [hetzner-nuke-config.yaml] you will likely see how it works and how you can add a new project to the list.
+Since I couldn' find a nuker for Hetzner Cloud, the [hcloud-nuker](./hcloud-nuker/) folder contains my own implementation using [hcloud-go](https://github.com/hetznercloud/hcloud-go). If you look at the configuration file [hcloud-nuke-config.yaml](./hcloud-nuke-config.yaml) you will likely see how it works and how you can add a new project to the list.
