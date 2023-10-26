@@ -14,6 +14,8 @@ resource-types:
   excludes:
   - Budget
   - IAMVirtualMFADevice
+  # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
+  - OSPackage
 
 accounts:
   "296119450228":
