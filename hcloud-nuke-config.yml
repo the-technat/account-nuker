@@ -8,3 +8,5 @@ projects:
   envSecretRef: TEVBOX_HCLOUD_TOKEN
 - name: caph
   envSecretRef: CAPH_HCLOUD_TOKEN
+- name: grapes
+  envSecretRef: GRAPES_HCLOUD_TOKEN
