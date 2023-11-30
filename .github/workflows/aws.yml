@@ -15,7 +15,7 @@ jobs:
       aws_nuke_version: "v2.25.0"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Fetch secrets from AKeyless
         id: fetch-secrets
         uses: LanceMcCarthy/akeyless-action@v3
