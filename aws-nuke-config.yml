@@ -20,14 +20,16 @@ resource-types:
 accounts:
   "296119450228": # grapes account
     filters:
+      S3Bucket:
+      - "grapes-state"
       IAMUser:
       - "grapes"
-      - "nuker"
+      - "nuker" # not used
       IAMUserPolicyAttachment:
       - "grapes -> AdministratorAccess"
-      - "nuker -> AdministratorAccess"
+      - "nuker -> AdministratorAccess" # not used
       IAMUserAccessKey:
       - type: "glob"
         value: "grapes -> *"
       - type: "glob"
-        value: "nuker -> *"
+        value: "nuker -> *" # not used
