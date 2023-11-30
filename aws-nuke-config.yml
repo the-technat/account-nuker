@@ -18,25 +18,16 @@ resource-types:
   - OSPackage
 
 accounts:
-  "296119450228":
+  "296119450228": # grapes account
     filters:
       IAMUser:
-      - "axiom"
+      - "grapes"
       - "nuker"
-      - type: "glob"
-        value: "*tfc*"
-      IAMVirtualMFADevice:
-      - type: "glob"
-        value: "*"
       IAMUserPolicyAttachment:
-      - "axiom -> AdministratorAccess"
+      - "grapes -> AdministratorAccess"
       - "nuker -> AdministratorAccess"
-      - type: "glob"
-        value: "*tfc* -> AdministratorAccess"
       IAMUserAccessKey:
       - type: "glob"
-        value: "axiom -> *"
+        value: "grapes -> *"
       - type: "glob"
         value: "nuker -> *"
-      - type: "glob"
-        value: "*tfc* -> *"
