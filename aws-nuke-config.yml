@@ -16,12 +16,11 @@ resource-types:
   - IAMVirtualMFADevice
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
+  - S3Bucket
 
 accounts:
   "296119450228": # grapes account
     filters:
-      S3Bucket:
-      - ""
       IAMUser:
       - "grapes"
       - "nuker" # not used
