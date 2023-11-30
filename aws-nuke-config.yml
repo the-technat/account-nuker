@@ -21,7 +21,8 @@ accounts:
   "296119450228": # grapes account
     filters:
       S3Bucket:
-      - "grapes-state"
+      - type: "glob"
+        value: "*grapes*"
       IAMUser:
       - "grapes"
       - "nuker" # not used
