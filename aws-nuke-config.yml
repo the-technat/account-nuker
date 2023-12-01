@@ -16,19 +16,25 @@ resource-types:
   - IAMVirtualMFADevice
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
-  - S3Bucket
+  - S3Object
 
 accounts:
   "296119450228": # grapes account
     filters:
       IAMUser:
       - "grapes"
+      - "wall-e"
       - "nuker" # not used
       IAMUserPolicyAttachment:
       - "grapes -> AdministratorAccess"
       - "nuker -> AdministratorAccess" # not used
       IAMUserAccessKey:
       - type: "glob"
+        value: "wall-e -> *"
+      - type: "glob"
         value: "grapes -> *"
       - type: "glob"
         value: "nuker -> *" # not used
+      S3Bucket:
+      - type: "glob"
+        value: "*grapes*"
