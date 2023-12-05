@@ -1,6 +1,6 @@
 module github.com/alleaffengaffen/account-nuker/hcloud-nuker
 
-go 1.21.4
+go 1.21.5
 
 require (
 	github.com/google/go-github/v57 v57.0.0
