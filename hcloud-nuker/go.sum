@@ -148,6 +148,8 @@ github.com/hetznercloud/hcloud-go/v2 v2.2.0 h1:UzuqXXoy9+mMS2GKV9ZKF5BqvFkOJwW0X
 github.com/hetznercloud/hcloud-go/v2 v2.2.0/go.mod h1:4iUG2NG8b61IAwNx6UsMWQ6IfIf/i1RsG0BbsKAyR5Q=
 github.com/hetznercloud/hcloud-go/v2 v2.4.0 h1:MqlAE+w125PLvJRCpAJmEwrIxoVdUdOyuFUhE/Ukbok=
 github.com/hetznercloud/hcloud-go/v2 v2.4.0/go.mod h1:l7fA5xsncFBzQTyw29/dw5Yr88yEGKKdc6BHf24ONS0=
+github.com/hetznercloud/hcloud-go/v2 v2.5.0 h1:FkfiqB2Bz2mLSQqOskWULpmVRYOQgFy7k0hfIuXv4YI=
+github.com/hetznercloud/hcloud-go/v2 v2.5.0/go.mod h1:y75vdFT0eNNnYyGWO55Qv0LI23kSgsQZl3Gyy0KMrI4=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
