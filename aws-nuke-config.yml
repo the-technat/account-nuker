@@ -5,7 +5,6 @@ regions:
 - eu-central-1 # Frankfurt
 - eu-north-1 # Stockholm
 - eu-west-1 # Ireland
-- global
 
 account-blocklist:
 - "999999999999" # production
@@ -21,20 +20,6 @@ resource-types:
 accounts:
   "296119450228": # grapes account
     filters:
-      IAMUser:
-      - "grapes"
-      - "wall-e"
-      - "nuker" # not used
-      IAMUserPolicyAttachment:
-      - "grapes -> AdministratorAccess"
-      - "nuker -> AdministratorAccess" # not used
-      IAMUserAccessKey:
-      - type: "glob"
-        value: "wall-e -> *"
-      - type: "glob"
-        value: "grapes -> *"
-      - type: "glob"
-        value: "nuker -> *" # not used
       S3Bucket:
       - type: "glob"
         value: "*grapes*"
