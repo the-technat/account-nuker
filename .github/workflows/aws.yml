@@ -16,18 +16,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Fetch secrets from AKeyless
-        id: fetch-secrets
-        uses: LanceMcCarthy/akeyless-action@v3
-        with:
-          access-id: ${{ secrets.AKEYLESS_ACCESS_ID }}
-          static-secrets: '{"/actions/grapes/aws_access_key":"AWS_ACCESS_KEY_ID", "/actions/grapes/aws_secret_access_key": "AWS_SECRET_ACCESS_KEY"}'
-      - name: Configure AWS Credentials
+      - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: eu-central-2
-          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::296119450228:role/nuker
+          role-session-name: nuker
+          aws-region: eu-central-1 
       - name: Install aws-nuke
         run: |
           curl -Lo aws-nuke.tar.gz https://github.com/rebuy-de/aws-nuke/releases/download/${{ env.aws_nuke_version }}/aws-nuke-${{ env.aws_nuke_version }}-linux-amd64.tar.gz
