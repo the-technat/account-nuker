@@ -18,7 +18,7 @@ resource-types:
   - S3Bucket
 
 accounts:
-  "296119450228": # grapes account
+  "351425708426": # grapes account
     filters:
       S3Bucket:
       - type: "glob"
