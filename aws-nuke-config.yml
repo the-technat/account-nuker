@@ -15,7 +15,8 @@ resource-types:
   - IAMVirtualMFADevice
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
-  - S3Bucket
+  - S3Bucket # still nukes everything inside
+  - ACMCertificate # they don't cause any costs
 
 accounts:
   "351425708426": # grapes account
