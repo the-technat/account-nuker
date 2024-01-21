@@ -4,9 +4,11 @@ on:
   pull_request:
 
 jobs:
-
   audit:
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: hcloud-nuker
     steps:
     - uses: actions/checkout@v4
 
@@ -14,18 +16,21 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.21
+    
+    - name: Verify
+      run: go mod verify
 
     - name: Build
-      run: go build -v hcloud-nuker/...
+      run: go build -v ./...
 
     - name: Run go vet
-      run: go vet hcloud-nuker/...
+      run: go vet ./...
 
     - name: Install staticcheck
       run: go install honnef.co/go/tools/cmd/staticcheck@latest
 
     - name: Run staticcheck
-      run: staticcheck hcloud-nuker/...
+      run: staticcheck ./...
 
     - name: Run tests
-      run: go test -race -vet=off hcloud-nuker/...
+      run: go test -race -vet=off ./...
