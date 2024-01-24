@@ -16,8 +16,10 @@ resource-types:
   - OSPackage
   - Budget
   - S3Bucket
-  - IAMRole
   - ACMCertificate
+  - IAMVirtualMFADevice
+  - IAMOpenIDConnectProvider
+  - IAMRole
 
 accounts:
   "351425708426": # technat-grapes account
