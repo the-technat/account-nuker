@@ -5,22 +5,20 @@ regions:
 - eu-central-1 # Frankfurt
 - eu-north-1 # Stockholm
 - eu-west-1 # Ireland
+- global
 
 account-blocklist:
 - "999999999999" # production
 
 resource-types:
   excludes:
-  - Budget
-  - IAMVirtualMFADevice
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
-  - S3Bucket # still nukes everything inside
-  - ACMCertificate # they don't cause any costs
+  - Budget
+  - S3Bucket
+  - IAMRole
+  - ACMCertificate
 
 accounts:
-  "351425708426": # grapes account
-    filters:
-      S3Bucket:
-      - type: "glob"
-        value: "*grapes*"
+  "351425708426": # technat-grapes account
+    filters: {}
