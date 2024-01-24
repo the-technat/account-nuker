@@ -20,6 +20,8 @@ resource-types:
   - IAMVirtualMFADevice
   - IAMOpenIDConnectProvider
   - IAMRole
+  - IAMRolePolicyAttachment 
+  - IAMPolicy
 
 accounts:
   "351425708426": # technat-grapes account
