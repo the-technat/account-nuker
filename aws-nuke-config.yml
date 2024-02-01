@@ -14,15 +14,35 @@ resource-types:
   excludes:
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
-  - Budget
-  - S3Bucket
-  - ACMCertificate
-  - IAMVirtualMFADevice
-  - IAMOpenIDConnectProvider
-  - IAMRole
-  - IAMRolePolicyAttachment 
-  - IAMPolicy
 
 accounts:
   "351425708426": # technat-grapes account
-    filters: {}
+    filters:
+      Budget:
+      - "default"
+      S3Bucket:
+      - "grapesstate"
+      IAMUser:
+      - "technat"
+      IAMVirtualMFADevice:
+			- type: "glob"
+				value: "arn:aws:iam::351425708426:mfa/*"
+			IAMLoginProfile:
+			- type: "glob"
+				value: "*technat*"
+      IAMUserPolicyAttachment:
+      - "technat -> AdministratorAccess"
+      IAMRole:
+      - "nuker"
+      - type: glob
+        value: "tfc-*"
+      - type: glob
+        value: "gh-*"
+      IAMRolePolicyAttachment:
+      - "gh-* -> *"
+      - "tfc-* -> *"
+      - "nuker -> AdministratorAccess"
+      IAMOpenIDConnectProvider:
+      - "app.terraform.io"
+      - "token.actions.githubusercontent.com"
+      
