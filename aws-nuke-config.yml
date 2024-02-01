@@ -14,6 +14,7 @@ resource-types:
   excludes:
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
+  - IAMRolePolicyAttachment # can still delete the roles
 
 accounts:
   "351425708426": # technat-grapes account
@@ -38,11 +39,7 @@ accounts:
         value: "tfc-*"
       - type: glob
         value: "gh-*"
-      IAMRolePolicyAttachment:
-      - "gh-* -> *"
-      - "tfc-* -> *"
-      - "nuker -> AdministratorAccess"
       IAMOpenIDConnectProvider:
-      - "app.terraform.io"
-      - "token.actions.githubusercontent.com"
+      - "arn:aws:iam::351425708426:oidc-provider/token.actions.githubusercontent.com"
+      - "arn:aws:iam::351425708426:oidc-provider/app.terraform.io"
       
