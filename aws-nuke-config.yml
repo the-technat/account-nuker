@@ -25,11 +25,11 @@ accounts:
       IAMUser:
       - "technat"
       IAMVirtualMFADevice:
-			- type: glob
-				value: "arn:aws:iam::351425708426:mfa/*"
-			IAMLoginProfile:
-			- type: glob
-				value: "*technat*"
+      - type: glob
+        value: "arn:aws:iam::351425708426:mfa/*"
+      IAMLoginProfile:
+      - type: glob
+        value: "*technat*"
       IAMUserPolicyAttachment:
       - "technat -> AdministratorAccess"
       IAMRole:
