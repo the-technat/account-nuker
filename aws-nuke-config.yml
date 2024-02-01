@@ -22,6 +22,7 @@ accounts:
       Budget:
       - "default"
       S3Bucket:
+      - "s3://grapesstate"
       - "grapesstate"
       IAMUser:
       - "technat"
