@@ -34,7 +34,7 @@ accounts:
         value: "*technat*"
       IAMUserAccessKey:
       - type: "glob"
-				value: "technat -> *"
+        value: "technat -> *"
       IAMUserPolicyAttachment:
       - "technat -> AdministratorAccess"
       IAMRole:
