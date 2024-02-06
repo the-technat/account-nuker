@@ -33,7 +33,7 @@ accounts:
       - type: glob
         value: "*technat*"
       IAMUserAccessKey:
-			- type: "glob"
+      - type: "glob"
 				value: "technat -> *"
       IAMUserPolicyAttachment:
       - "technat -> AdministratorAccess"
