@@ -32,6 +32,9 @@ accounts:
       IAMLoginProfile:
       - type: glob
         value: "*technat*"
+      IAMUserAccessKey:
+			- type: "glob"
+				value: "technat -> *"
       IAMUserPolicyAttachment:
       - "technat -> AdministratorAccess"
       IAMRole:
