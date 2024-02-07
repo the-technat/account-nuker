@@ -12,3 +12,7 @@ tenants:
         - type: contains
           property: Name
           value: containerday
+      ContainerRegistry:
+        - type: contains
+          property: Name
+          value: containerday
