@@ -8,3 +8,9 @@ tenants:
         - type: contains
           property: Name
           value: nuker
+          
+presets:
+  common:
+    filters:
+      ResourceGroup:
+        - containerday
