@@ -17,7 +17,7 @@ resource-types:
   - IAMRolePolicyAttachment # can still delete the roles
 
 accounts:
-  "351425708426": # technat-grapes account
+  "351425708426": # technat account
     filters:
       Budget:
       - "default"
