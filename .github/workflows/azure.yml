@@ -9,7 +9,7 @@ jobs:
   destroy:
     runs-on: ubuntu-latest
     env:
-      azure_nuke_version: "v0.15.0"
+      azure_nuke_version: "v1.0.0-next.4"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4   
