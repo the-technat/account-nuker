@@ -15,6 +15,7 @@ resource-types:
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
   - IAMRolePolicyAttachment # can still delete the roles
+  - S3Bucket
 
 accounts:
   "351425708426": # technat account
