@@ -1,4 +1,4 @@
-name: Hcloud Go Checks 
+name: hcloud go checks 
 
 on:
   pull_request:

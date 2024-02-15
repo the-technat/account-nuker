@@ -14,7 +14,7 @@ jobs:
       - name: Setup Go 
         uses: actions/setup-go@v5
         with:
-          go-version: 1.21
+          go-version: 1.22
           cache-dependency-path: hetzner-nuker/go.sum
       - name: Display Go version
         run: go version
@@ -22,7 +22,6 @@ jobs:
         run: cd hcloud-nuker && go get .
       - name: Run Hetzner hetzner-nuker
         env:
-          CAPH_HCLOUD_TOKEN: ${{ secrets.CAPH_HCLOUD_TOKEN }}
           TEVBOX_HCLOUD_TOKEN: ${{ secrets.TEVBOX_HCLOUD_TOKEN }}
-          GRAPES_HCOUD_TOKEN: ${{ secrets.GRAPES_HCLOUD_TOKEN }}
+          GRAPES_HCLOUD_TOKEN: ${{ secrets.GRAPES_HCLOUD_TOKEN }}
         run: cd hcloud-nuker && go run main.go
