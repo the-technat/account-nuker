@@ -1,7 +1,7 @@
-tenant-blocklist:
+blocklist:
   - 00001111-2222-3333-4444-555566667777
 
-tenants:
+accounts:
   afb1b04e-8a6f-44e6-8835-db3a1ab8bee7:
     filters:
       ServicePrincipal:
