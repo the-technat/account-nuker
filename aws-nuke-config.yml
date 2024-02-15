@@ -55,7 +55,7 @@ accounts:
         value: "gh-*"
       IAMPolicy:
       - type: regex
-        value: gh-.*"
+        value: "gh-.*"
       - type: regex
         value: "tfc-.*"
       IAMOpenIDConnectProvider:
