@@ -7,6 +7,13 @@ regions:
 - eu-west-1 # Ireland
 - global
 
+feature-flags:
+  disable-deletion-protection:
+    RDSInstance: true
+    EC2Instance: true
+    CloudformationStack: true
+  force-delete-lightsail-addons: true
+
 account-blocklist:
 - "999999999999" # production
 
