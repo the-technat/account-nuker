@@ -15,7 +15,7 @@ resource-types:
   # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
   - OSPackage
   - IAMRolePolicyAttachment # can still delete the roles
-  - S3Bucket
+  - IAMPolicy
 
 accounts:
   "351425708426": # technat account
@@ -24,7 +24,8 @@ accounts:
       - "default"
       S3Bucket:
       - "s3://grapesstate"
-      - "grapesstate"
+      - type: glob
+        value: "s3://gh-*"
       IAMUser:
       - "technat"
       IAMVirtualMFADevice:
@@ -44,11 +45,6 @@ accounts:
         value: "tfc-*"
       - type: glob
         value: "gh-*"
-      IAMPolicy:
-      - type: glob
-        value: "gh-*"
-      - type: glob
-        value: "tfc-*"
       IAMOpenIDConnectProvider:
       - "arn:aws:iam::351425708426:oidc-provider/token.actions.githubusercontent.com"
       - "arn:aws:iam::351425708426:oidc-provider/app.terraform.io"
