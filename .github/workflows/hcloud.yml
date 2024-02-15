@@ -1,4 +1,4 @@
-name: hetzner-nuke
+name: hcloud-nuke
 
 on:
   workflow_dispatch: {}
