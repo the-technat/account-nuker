@@ -12,7 +12,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      aws_nuke_version: "v2.25.0"
+      aws_nuke_version: "v2.26.6"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,12 +21,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::351425708426:role/nuker
           role-session-name: nuker
-          aws-region: eu-central-1 
+          aws-region: eu-west-1
       - name: Install aws-nuke
         run: |
-          curl -Lo aws-nuke.tar.gz https://github.com/rebuy-de/aws-nuke/releases/download/${{ env.aws_nuke_version }}/aws-nuke-${{ env.aws_nuke_version }}-linux-amd64.tar.gz
+          curl -Lo aws-nuke.tar.gz https://github.com/ekristen/aws-nuke/releases/download/${{ env.aws_nuke_version }}/aws-nuke-${{ env.aws_nuke_version }}-linux-amd64.tar.gz
           tar -zxvf aws-nuke.tar.gz
-          sudo mv aws-nuke-${{ env.aws_nuke_version }}-linux-amd64 /usr/local/bin/aws-nuke
+          sudo mv aws-nuke /usr/local/bin/aws-nuke
           rm aws-nuke.tar.gz
+          rm LICENSE
+          rm README.md
       - name: Run aws-nuke
-        run: aws-nuke --no-dry-run --force -c aws-nuke-config.yml
+        run: aws-nuke --no-dry-run --force -c aws-nuke-config.yml 
