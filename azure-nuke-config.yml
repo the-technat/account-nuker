@@ -19,11 +19,3 @@ accounts:
         - type: contains
           property: Name
           value: nuker
-      ResourceGroup:
-        - type: contains
-          property: Name
-          value: containerday
-      ContainerRegistry:
-        - type: contains
-          property: Name
-          value: containerday
