@@ -4,7 +4,7 @@ go 1.22.2
 
 require (
 	github.com/google/go-github/v63 v63.0.0
-	github.com/hetznercloud/hcloud-go/v2 v2.12.0
+	github.com/hetznercloud/hcloud-go/v2 v2.13.0
 	github.com/spf13/viper v1.19.0
 )
 
