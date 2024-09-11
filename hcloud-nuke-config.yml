@@ -8,3 +8,5 @@ projects:
   envSecretRef: GRAPES_HCLOUD_TOKEN
 - name: tevbox
   envSecretRef: TEVBOX_HCLOUD_TOKEN
+- name: technat.dev
+  envSecretRef: TECHNAT_DEV_HCLOUD_TOKEN
