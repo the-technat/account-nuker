@@ -96,7 +96,7 @@ func (p *Project) Nuke(ctx context.Context) {
 	p.DeleteNetworks(ctx)
 	p.DeletePrimaryIPs(ctx)
 	p.DeletePlacementGroups(ctx)
-	p.DeleteSSHKeys(ctx)
+	// p.DeleteSSHKeys(ctx)
 	p.DeleteCertificates(ctx)
 
 }
