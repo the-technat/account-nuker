@@ -7,7 +7,7 @@ regions:
 - eu-west-1 # Ireland
 - global
 
-account-blocklist:
+blocklist:
 - "999999999999" # production
 
 resource-types:
