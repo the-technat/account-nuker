@@ -12,7 +12,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      aws_nuke_version: "v2.26.6"
+      aws_nuke_version: "v3.17.3"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,4 +31,4 @@ jobs:
           rm LICENSE
           rm README.md
       - name: Run aws-nuke
-        run: aws-nuke --no-dry-run --force -c aws-nuke-config.yml 
+        run: aws-nuke nuke --no-dry-run --force -c aws-nuke-config.yml 
