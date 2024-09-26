@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       azure_nuke_version: "v1.1.0"
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,17 +27,7 @@ jobs:
           rm LICENSE
           rm azure-nuke.tar.gz
       - name: Run azure-nuke dry-run
-        env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         run: azure-nuke nuke --no-prompt --config=azure-nuke-config.yml
       - name: Run azure-nuke
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
-        env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         run: azure-nuke nuke --no-prompt --no-dry-run --config=azure-nuke-config.yml
