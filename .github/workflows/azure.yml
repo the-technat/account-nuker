@@ -3,7 +3,8 @@ name: azure-nuke
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 23 * * sun,wed'
+    - cron: "0 23 * * sun,wed"
+  pull_request:
 
 jobs:
   destroy:
@@ -12,7 +13,7 @@ jobs:
       azure_nuke_version: "v1.1.0"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4   
+        uses: actions/checkout@v4
       - name: Install azure-nuke
         run: |
           curl -Lo azure-nuke.tar.gz https://github.com/ekristen/azure-nuke/releases/download/${{ env.azure_nuke_version }}/azure-nuke-${{ env.azure_nuke_version }}-linux-amd64.tar.gz
@@ -21,10 +22,18 @@ jobs:
           rm README.md
           rm LICENSE
           rm azure-nuke.tar.gz
-      - name: Run azure-nuke
+      - name: Run azure-nuke dry-run
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        run: azure-nuke nuke --no-prompt --no-dry-run --config=azure-nuke-config.yml  
+        run: azure-nuke nuke --no-prompt --config=azure-nuke-config.yml
+      - name: Run azure-nuke
+        if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        run: azure-nuke nuke --no-prompt --no-dry-run --config=azure-nuke-config.yml

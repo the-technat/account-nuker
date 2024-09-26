@@ -3,12 +3,13 @@ name: aws-nuke
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 23 * * sun,wed'
+    - cron: "0 23 * * sun,wed"
+  pull_request:
 
 jobs:
   destroy:
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       id-token: write
       contents: read
     env:
@@ -30,5 +31,8 @@ jobs:
           rm aws-nuke.tar.gz
           rm LICENSE
           rm README.md
+      - name: Run aws-nuke dry-run
+        run: aws-nuke nuke --force -c aws-nuke-config.yml
       - name: Run aws-nuke
-        run: aws-nuke nuke --no-dry-run --force -c aws-nuke-config.yml 
+        if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        run: aws-nuke nuke --no-dry-run --force -c aws-nuke-config.yml

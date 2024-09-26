@@ -1,19 +1,57 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended"
-    ],
-    "packageRules": [
-        {
-            "matchUpdateTypes": [
-                "minor",
-                "patch"
-            ],
-            "matchCurrentVersion": "!/^0/",
-            "automerge": true
-        }
-    ],
-    "postUpdateOptions": [
-        "goModTidy"
-    ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended"
+	],
+	"packageRules": [
+		{
+			"matchUpdateTypes": [
+				"minor",
+				"patch"
+			],
+			"matchCurrentVersion": "!/^0/",
+			"automerge": true
+		}
+	],
+	"postUpdateOptions": [
+		"goModTidy"
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^\\.github/workflows/[^/]+\\.ya?ml$"
+			],
+			"matchStringsStrategy": "combination",
+			"matchStrings": [
+				"aws_nuke_version: (?<currentValue>.*?)\\s"
+			],
+			"packageNameTemplate": "ekristen/aws-nuke",
+			"datasourceTemplate": "github-tags"
+		},
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^\\.github/workflows/[^/]+\\.ya?ml$"
+			],
+			"matchStringsStrategy": "combination",
+			"matchStrings": [
+				"azure_nuke_version: (?<currentValue>.*?)\\s"
+			],
+			"packageNameTemplate": "ekristen/azure-nuke",
+			"datasourceTemplate": "github-tags"
+		},
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^\\.github/workflows/[^/]+\\.ya?ml$"
+			],
+			"matchStringsStrategy": "combination",
+			"matchStrings": [
+				"go-version: (?<currentValue>.*?)\\s"
+			],
+			"packageNameTemplate": "golang",
+			"datasourceTemplate": "golang-version"
+		}
+	]
 }
