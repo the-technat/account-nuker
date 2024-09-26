@@ -27,7 +27,7 @@ jobs:
           rm LICENSE
           rm azure-nuke.tar.gz
       - name: Run azure-nuke dry-run
-        run: azure-nuke nuke --no-prompt --config=azure-nuke-config.yml
+        run: azure-nuke run --no-prompt --config=azure-nuke-config.yml
       - name: Run azure-nuke
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
-        run: azure-nuke nuke --no-prompt --no-dry-run --config=azure-nuke-config.yml
+        run: azure-nuke run --no-prompt --no-dry-run --config=azure-nuke-config.yml
