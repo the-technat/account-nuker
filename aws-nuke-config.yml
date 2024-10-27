@@ -95,10 +95,11 @@ presets:
           value: "terraform"
 
 # this list represents only static things needed for the account to work (and the core repo to work)
+# they are all created manually
 accounts:
   "351425708426": # technat account
     presets:
-      - "core"
+      - "core" # to filter everything that the core account creates via terraform
       - "defaults"
       - "common"
     filters:
@@ -112,5 +113,7 @@ accounts:
         - "technat"
       IAMUserPolicyAttachment:
         - "technat -> AdministratorAccess"
+      IAMRole:
+        - "core"
       IAMOpenIDConnectProvider:
         - "arn:aws:iam::351425708426:oidc-provider/app.terraform.io"
