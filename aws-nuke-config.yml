@@ -1,3 +1,5 @@
+# https://ekristen.github.io/aws-nuke/starter-config/
+
 regions:
   - sa-east-1 # Sao Paulo
   - us-east-1 # North Virginia
@@ -10,13 +12,82 @@ regions:
 blocklist:
   - "999999999999" # production
 
+
+settings:
+  EC2Image:
+    IncludeDisabled: true
+    IncludeDeprecated: true
+    DisableDeregistrationProtection: true
+  EC2Instance:
+    DisableStopProtection: true
+    DisableDeletionProtection: true
+  RDSInstance:
+    DisableDeletionProtection: true
+  CloudFormationStack:
+    DisableDeletionProtection: true
+  DynamoDBTable:
+    DisableDeletionProtection: true
+
 resource-types:
   excludes:
-    # don't nuke OpenSearch Packages, see https://github.com/rebuy-de/aws-nuke/issues/1123
-    - OSPackage
     - IAMRolePolicyAttachment # can still delete the roles and policies
+    - S3Object # Excluded because S3 bucket removal handles removing all S3Objects
+    - ServiceCatalogTagOption # Excluded due to https://github.com/rebuy-de/aws-nuke/issues/515
+    - ServiceCatalogTagOptionPortfolioAttachment # Excluded due to https://github.com/rebuy-de/aws-nuke/issues/515
+    - FMSNotificationChannel # Excluded because it's not available
+    - FMSPolicy # Excluded because it's not available
+    - MachineLearningMLModel # Excluded due to ML being unavailable
+    - MachineLearningDataSource # Excluded due to ML being unavailable
+    - MachineLearningBranchPrediction # Excluded due to ML being unavailable
+    - MachineLearningEvaluation # Excluded due to ML being unavailable
+    - RoboMakerDeploymentJob # Deprecated Service
+    - RoboMakerFleet # Deprecated Service
+    - RoboMakerRobot # Deprecated Service
+    - RoboMakerSimulationJob
+    - RoboMakerRobotApplication
+    - RoboMakerSimulationApplication
+    - OpsWorksApp # Deprecated service
+    - OpsWorksInstance # Deprecated service
+    - OpsWorksLayer # Deprecated service
+    - OpsWorksUserProfile # Deprecated service
+    - OpsWorksCMBackup # Deprecated service
+    - OpsWorksCMServer # Deprecated service
+    - OpsWorksCMServerState # Deprecated service
+    - CodeStarProject # Deprecated service
+    - CodeStarConnection # Deprecated service
+    - CodeStarNotification # Deprecated service
+    - Cloud9Environment # Deprecated service
+    - CloudSearchDomain # Deprecated service
+    - RedshiftServerlessSnapshot # Deprecated service
+    - RedshiftServerlessNamespace # Deprecated service
+    - RedshiftServerlessWorkgroup # Deprecated service
 
 presets:
+  common:
+    filters:
+      BudgetsBudget:
+        - property: Name
+          value: "default"
+  defaults:
+    filters:
+      EC2Subnet:
+        - property: DefaultVPC
+          value: "true"
+      EC2DefaultSecurityGroupRule:
+        - property: DefaultVPC
+          value: "true"
+      EC2DHCPOption:
+        - property: DefaultVPC
+          value: "true"
+      EC2VPC:
+        - property: IsDefault
+          value: "true"
+      EC2InternetGateway:
+        - property: DefaultVPC
+          value: "true"
+      EC2InternetGatewayAttachment:
+        - property: DefaultVPC
+          value: "true"
   core:
     filters:
       __global__:
@@ -28,6 +99,8 @@ accounts:
   "351425708426": # technat account
     presets:
       - "core"
+      - "defaults"
+      - "common"
     filters:
       IAMUser:
         - "technat"
