@@ -16,48 +16,28 @@ resource-types:
     - OSPackage
     - IAMRolePolicyAttachment # can still delete the roles and policies
 
-# the list has to be in sync with the core repo
-# TODO filter everything with tag managed-by=terraform
+presets:
+  core:
+    filters:
+      __global__:
+        - property: tag:managed-by
+          value: "terraform"
+
+# this list represents only static things needed for the account to work (and the core repo to work)
 accounts:
   "351425708426": # technat account
+    presets:
+      - "core"
     filters:
-      Budget:
-        - "default"
-      S3Bucket:
-        - "s3://grapesstate"
-        - type: glob
-          value: "s3://gh-*"
-      S3Object:
-        - "s3://gh-totifications/cache.db"
       IAMUser:
         - "technat"
       IAMVirtualMFADevice:
-        - type: glob
-          value: "arn:aws:iam::351425708426:mfa/*"
+        - "arn:aws:iam::351425708426:mfa/bitwarden"
       IAMUserMFADevice:
-        - type: glob
-          value: "technat*"
+        - "technat -> passkey_apple-FUUYS55HZRFOXMNAEIRDA3NBSU"
       IAMLoginProfile:
-        - type: glob
-          value: "*technat*"
-      IAMUserAccessKey:
-        - type: "glob"
-          value: "*"
+        - "technat"
       IAMUserPolicyAttachment:
         - "technat -> AdministratorAccess"
-      IAMRole:
-        - "nuker"
-        - type: glob
-          value: "tfc-*"
-        - type: glob
-          value: "gh-*"
-      IAMPolicy:
-        - type: regex
-          value: "gh-.*"
-        - type: regex
-          value: "tfc-.*"
-        - type: regex
-          value: "core"
       IAMOpenIDConnectProvider:
-        - "arn:aws:iam::351425708426:oidc-provider/token.actions.githubusercontent.com"
         - "arn:aws:iam::351425708426:oidc-provider/app.terraform.io"
