@@ -16,6 +16,8 @@ resource-types:
     - OSPackage
     - IAMRolePolicyAttachment # can still delete the roles and policies
 
+# the list has to be in sync with the core repo
+# TODO filter everything with tag managed-by=terraform
 accounts:
   "351425708426": # technat account
     filters:
