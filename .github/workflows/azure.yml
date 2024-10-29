@@ -6,15 +6,19 @@ on:
     - cron: "0 23 * * sun,wed"
   pull_request:
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
 jobs:
   destroy:
     runs-on: ubuntu-latest
     env:
       azure_nuke_version: "v1.1.0"
-      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_CLIENT_ID: "${{ secrets.ARM_CLIENT_ID }}"
+      ARM_SUBSCRIPTION_ID: "${{ secrets.ARM_SUBSCRIPTION_ID }}"
+      ARM_TENANT_ID: "${{ secrets.ARM_TENANT_ID }}"
+      ARM_USE_AZUREAD: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
