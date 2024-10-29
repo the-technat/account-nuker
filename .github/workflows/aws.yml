@@ -20,7 +20,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::351425708426:role/nuker
+          role-to-assume: ${{ secrets.aws_role }}
           role-session-name: nuker
           aws-region: eu-west-1
       - name: Install aws-nuke
