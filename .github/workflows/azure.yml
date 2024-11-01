@@ -15,9 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       azure_nuke_version: "v1.1.0"
-      AZURE_CLIENT_ID: "${{ secrets.AZURE_CLIENT_ID }}"
-      AZURE_SUBSCRIPTION_ID: "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-      AZURE_TENANT_ID: "${{ secrets.AZURE_TENANT_ID }}"
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_FEDERATED_TOKEN_FILE: /tmp/token
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,6 +30,8 @@ jobs:
           rm README.md
           rm LICENSE
           rm azure-nuke.tar.gz
+      - name: Write Github token to file
+        run: echo ${{ secrets.GITHUB_TOKEN }} > ${{ env.AZURE_FEDERATED_TOKEN_FILE }}
       - name: Run azure-nuke dry-run
         run: azure-nuke run --no-prompt --config=azure-nuke-config.yml 
       - name: Run azure-nuke
