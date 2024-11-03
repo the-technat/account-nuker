@@ -32,8 +32,10 @@ accounts:
       - "Nathanael Liechti"
       Application:
       - "core"
+      - "nuker" # doesn't support tagging
       ServicePrincipal:
       - "core"
-      SubscriptionRoleAssignment:
-      - "core"
       - "nuker" # doesn't support tagging
+      SubscriptionRoleAssignment:
+      - "core -> Owner" 
+      - "nuker -> Contributor" # doesn't support tagging
