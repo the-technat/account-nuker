@@ -28,7 +28,12 @@ accounts:
     presets:
     - "core" # to filter everything that the core repo creates via terraform
     filters:
+      AzureADUser:
+      - "Nathanael Liechti"
       Application:
       - "core"
       ServicePrincipal:
       - "core"
+      SubscriptionRoleAssignment:
+      - "core"
+      - "nuker" # doesn't support tagging
