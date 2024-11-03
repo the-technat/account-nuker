@@ -1,26 +1,19 @@
 module github.com/alleaffengaffen/account-nuker/hcloud-nuker
 
-go 1.22.2
+go 1.23
 
 require (
-	github.com/google/go-github/v66 v66.0.0
 	github.com/hetznercloud/hcloud-go/v2 v2.14.0
 	github.com/spf13/viper v1.19.0
 )
 
 require (
-	github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.17.9 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
-	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
-	github.com/matttproud/golang_protobuf_extensions/v2 v2.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
@@ -33,12 +26,10 @@ require (
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
-	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
-	golang.org/x/crypto v0.28.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	golang.org/x/net v0.30.0 // indirect
 	golang.org/x/sys v0.26.0 // indirect
