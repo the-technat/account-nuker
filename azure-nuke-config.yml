@@ -39,3 +39,6 @@ accounts:
       SubscriptionRoleAssignment:
       - "core -> Owner" 
       - "nuker -> Contributor" # doesn't support tagging
+      ApplicationFederatedCredential:
+      - "core -> core-apply"
+      - "core -> core-plan"
