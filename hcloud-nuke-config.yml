@@ -4,8 +4,6 @@
 # 2. add a new environment variable in the github workflow that exports your secret as environment variables
 # 3. specify the exact project name + name of the environment variable in this YAML file
 projects:
-- name: grapes
-  envSecretRef: GRAPES_HCLOUD_TOKEN
 - name: tevbox
   envSecretRef: TEVBOX_HCLOUD_TOKEN
 - name: technat.dev

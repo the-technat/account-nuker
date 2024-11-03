@@ -47,6 +47,5 @@ jobs:
       - name: Run hcloud-nuker
         env:
           TEVBOX_HCLOUD_TOKEN: ${{ secrets.TEVBOX_HCLOUD_TOKEN }}
-          GRAPES_HCLOUD_TOKEN: ${{ secrets.GRAPES_HCLOUD_TOKEN }}
           TECHNAT_DEV_HCLOUD_TOKEN: ${{ secrets.TECHNAT_DEV_HCLOUD_TOKEN }}
         run: go run main.go
