@@ -1,28 +1,52 @@
 name: hcloud-nuke
 
 on:
+  pull_request:
   workflow_dispatch: {}
   schedule:
     - cron: '0 23 * * sun,wed'
 
+defaults:
+  run:
+    working-directory: hcloud-nuker
+
 jobs:
-  destroy:
+  audit:
+    if: ${{ contains(fromJSON('["pull_request"]'), github.event_name) }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Go 
-        uses: actions/setup-go@v5
+    - uses: actions/checkout@v4
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: 'hcloud-nuker/go.mod'
+        cache-dependency-path: hcloud-nuker/go.sum
+    - name: Verify
+      run: go mod verify
+    - name: Build
+      run: go build -v ./...
+    - name: Run go vet
+      run: go vet ./...
+    - name: Install staticcheck
+      run: go install honnef.co/go/tools/cmd/staticcheck@latest
+    - name: Run staticcheck
+      run: staticcheck ./...
+    - name: Run tests
+      run: go test -race -vet=off ./...
+  destroy:
+    runs-on: ubuntu-latest
+    if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
         with:
-          go-version: 1.23
-          cache-dependency-path: hetzner-nuker/go.sum
-      - name: Display Go version
-        run: go version
+          go-version-file: 'hcloud-nuker/go.mod'
+          cache-dependency-path: hcloud-nuker/go.sum
       - name: Install dependencies
-        run: cd hcloud-nuker && go get .
-      - name: Run Hetzner hetzner-nuker
+        run: go get ./...
+      - name: Run hcloud-nuker
         env:
           TEVBOX_HCLOUD_TOKEN: ${{ secrets.TEVBOX_HCLOUD_TOKEN }}
           GRAPES_HCLOUD_TOKEN: ${{ secrets.GRAPES_HCLOUD_TOKEN }}
           TECHNAT_DEV_HCLOUD_TOKEN: ${{ secrets.TECHNAT_DEV_HCLOUD_TOKEN }}
-        run: cd hcloud-nuker && go run main.go
+        run: go run main.go
