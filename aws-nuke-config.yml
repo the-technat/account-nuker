@@ -1,4 +1,6 @@
 # https://ekristen.github.io/aws-nuke/starter-config/
+blocklist:
+  - "999999999999" # production
 
 regions:
   - sa-east-1 # Sao Paulo
@@ -8,10 +10,6 @@ regions:
   - eu-north-1 # Stockholm
   - eu-west-1 # Ireland
   - global
-
-blocklist:
-  - "999999999999" # production
-
 
 settings:
   EC2Image:

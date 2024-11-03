@@ -1,21 +1,29 @@
+# https://ekristen.github.io/azure-nuke/quick-start/
 blocklist:
-  - 00001111-2222-3333-4444-555566667777
+  - 00001111-2222-3333-4444-555566667777 # production
 
 regions:
-  - switzerlandnorth
+  - switzerlandnorth # Zürich
   - europe
   - germany
   - switzerland
   - germanynorth
-  - switzerlandwest
+  - switzerlandwest # Geneva
   - global
   - eastus
   - eastus2
 
-accounts:
-  afb1b04e-8a6f-44e6-8835-db3a1ab8bee7:
+presets:
+  core:
     filters:
-      ServicePrincipal:
-        - type: contains
-          property: Name
-          value: nuker
+      __global__:
+        - property: tag:managed-by
+          value: "terraform"
+
+
+# this list represents only static things needed for the account to work (and the core repo to work)
+# they are all created manually
+accounts:
+  afb1b04e-8a6f-44e6-8835-db3a1ab8bee7: # technat sub
+    presets:
+    - "core" # to filter everything that the core repo creates via terraform
