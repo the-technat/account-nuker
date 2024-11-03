@@ -27,3 +27,8 @@ accounts:
   afb1b04e-8a6f-44e6-8835-db3a1ab8bee7: # technat sub
     presets:
     - "core" # to filter everything that the core repo creates via terraform
+    filters:
+      Application:
+      - "core"
+      ServicePrincipal:
+      - "core"
