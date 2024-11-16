@@ -8,3 +8,5 @@ projects:
   envSecretRef: TEVBOX_HCLOUD_TOKEN
 - name: technat.dev
   envSecretRef: TECHNAT_DEV_HCLOUD_TOKEN
+- name: devpod
+  envSecretRef: DEVPDO_HCLOUD_TOKEN
