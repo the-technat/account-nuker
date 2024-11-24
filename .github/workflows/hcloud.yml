@@ -48,5 +48,4 @@ jobs:
         env:
           TEVBOX_HCLOUD_TOKEN: ${{ secrets.TEVBOX_HCLOUD_TOKEN }}
           TECHNAT_DEV_HCLOUD_TOKEN: ${{ secrets.TECHNAT_DEV_HCLOUD_TOKEN }}
-          DEVPOD_HCLOUD_TOKEN: ${{ secrets.DEVPOD_HCLOUD_TOKEN }}
         run: go run main.go
