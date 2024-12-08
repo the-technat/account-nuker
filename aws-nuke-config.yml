@@ -86,18 +86,18 @@ presets:
       EC2InternetGatewayAttachment:
         - property: DefaultVPC
           value: "true"
-  core:
+  terraform:
     filters:
       __global__:
         - property: tag:managed-by
           value: "terraform"
 
-# this list represents only static things needed for the account to work (and the core repo to work)
+# this list represents only static things needed for the account to work and terraform resources managed somewhere else
 # they are all created manually
 accounts:
   "351425708426": # technat account
     presets:
-      - "core" # to filter everything that the core account creates via terraform
+      - "terraform"
       - "defaults"
       - "common"
     filters:
@@ -112,6 +112,8 @@ accounts:
       IAMUserPolicyAttachment:
         - "technat -> AdministratorAccess"
       IAMRole:
-        - "core"
+        - "nuker"
+      IAMRolePolicyAttachement:
+      - "nuker -> AdministratorAccess"
       IAMOpenIDConnectProvider:
-        - "arn:aws:iam::351425708426:oidc-provider/app.terraform.io"
+        - "arn:aws:iam::351425708426:oidc-provider/token.actions.githubusercontent.com"

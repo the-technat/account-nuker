@@ -14,7 +14,7 @@ regions:
   - eastus2
 
 presets:
-  core:
+  terraform:
     filters:
       __global__:
         - property: tag:managed-by
@@ -26,19 +26,13 @@ presets:
 accounts:
   afb1b04e-8a6f-44e6-8835-db3a1ab8bee7: # technat sub
     presets:
-    - "core" # to filter everything that the core repo creates via terraform
+    - "terraform" # to filter everything that terraform created and manages
     filters:
       AzureADUser:
       - "Nathanael Liechti"
       Application:
-      - "core"
-      - "nuker" # doesn't support tagging
+      - "nuker" 
       ServicePrincipal:
-      - "core"
-      - "nuker" # doesn't support tagging
+      - "nuker"
       SubscriptionRoleAssignment:
-      - "core -> Owner" 
-      - "nuker -> Contributor" # doesn't support tagging
-      ApplicationFederatedCredential:
-      - "core -> core-apply"
-      - "core -> core-plan"
+      - "nuker -> Contributor" 
