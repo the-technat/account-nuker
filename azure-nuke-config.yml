@@ -32,6 +32,8 @@ accounts:
       - "Nathanael Liechti"
       Application:
       - "nuker" 
+      ApplicationSecret:
+      - "nuker -> b9603806-d7a2-4119-adc5-a9f3225ab081"
       ServicePrincipal:
       - "nuker"
       SubscriptionRoleAssignment:
