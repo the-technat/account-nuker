@@ -10,7 +10,7 @@ jobs:
   destroy:
     runs-on: ubuntu-latest
     env:
-      azure_nuke_version: "v1.1.0"
+      azure_nuke_version: v1.2.0
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
