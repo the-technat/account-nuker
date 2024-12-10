@@ -3,8 +3,8 @@ name: hcloud-nuke
 on:
   pull_request:
   workflow_dispatch: {}
-  schedule:
-    - cron: '0 23 * * sun,wed'
+  #schedule:
+  #  - cron: '0 23 * * sun,wed'
 
 defaults:
   run:
