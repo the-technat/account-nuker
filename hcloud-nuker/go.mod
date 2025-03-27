@@ -3,7 +3,7 @@ module github.com/alleaffengaffen/account-nuker/hcloud-nuker
 go 1.24
 
 require (
-	github.com/hetznercloud/hcloud-go/v2 v2.20.1
+	github.com/hetznercloud/hcloud-go/v2 v2.21.0
 	github.com/spf13/viper v1.20.1
 )
 
