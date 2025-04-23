@@ -66,6 +66,9 @@ presets:
       BudgetsBudget:
         - property: Name
           value: "default"
+      __global__:
+        - property: tag:managed-by
+          value: "technat"
   defaults:
     filters:
       EC2Subnet:
