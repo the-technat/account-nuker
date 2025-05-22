@@ -100,7 +100,7 @@ presets:
 accounts:
   "351425708426": # technat account
     presets:
-      - "terraform"
+      #- "terraform"
       - "defaults"
       - "common"
     filters:
