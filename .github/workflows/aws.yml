@@ -16,7 +16,7 @@ jobs:
       aws_nuke_version: v3.56.2
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
