@@ -15,7 +15,7 @@ jobs:
     if: ${{ contains(fromJSON('["pull_request"]'), github.event_name) }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'hcloud-nuker/go.mod'
