@@ -17,7 +17,7 @@ jobs:
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install azure-nuke
         run: |
           curl -Lo azure-nuke.tar.gz https://github.com/ekristen/azure-nuke/releases/download/${{ env.azure_nuke_version }}/azure-nuke-${{ env.azure_nuke_version }}-linux-amd64.tar.gz
