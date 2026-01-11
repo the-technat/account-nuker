@@ -117,7 +117,7 @@ accounts:
         - "technat -> AKIAVDUU2YGFGT2YH4WC"
       IAMRole:
         - "nuker"
-      IAMRolePolicyAttachement:
+      IAMRolePolicyAttachment:
         - type: contains
           value: "nuker"
       IAMOpenIDConnectProvider:
