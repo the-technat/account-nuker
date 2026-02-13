@@ -9,6 +9,7 @@ regions:
   - eu-central-1 # Frankfurt
   - eu-north-1 # Stockholm
   - eu-west-1 # Ireland
+  - us-west-2 # Oregon
   - global
 
 settings:
