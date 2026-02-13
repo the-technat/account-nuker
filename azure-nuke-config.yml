@@ -38,3 +38,4 @@ accounts:
       - "nuker"
       SubscriptionRoleAssignment:
       - "nuker -> Contributor" 
+      - "Nathanael Liechti -> Owner" 
