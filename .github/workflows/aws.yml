@@ -13,7 +13,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      aws_nuke_version: v3.63.4
+      aws_nuke_version: v3.64.0
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
